@@ -58,6 +58,7 @@ xbin=cut(FIRdata$five, breaks= c(BinLimits))
 ybin=cut(FIRdata$three, breaks= c(BinLimits))
 FIRdata<-cbind(FIRdata, xbin, ybin, 
                genevalue=rep(1, length(FIRdata$five)))
+# Here added FUN=sum. In this version it was complaining about the function
 GenValMatrix<-with(FIRdata, tapply(genevalue, list(xbin, ybin), FUN=sum))
 
 x<-1:ncol(GenValMatrix)
